@@ -1,4 +1,5 @@
 # android-wgpu
+WebGPU example for Android that imply draws a triangle
 
 Make sure to install anroid ndk side-by-side not the ndk-bundle. The ndk-bundle is legacy
 
