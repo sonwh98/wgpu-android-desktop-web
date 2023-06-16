@@ -1,0 +1,28 @@
+[package]
+name = "wgpu-android"
+version = "0.1.0"
+authors = ["msiglreith <m.siglreith@gmail.com>"]
+edition = "2018"
+resolver = "2"
+
+[lib]
+crate-type = ["lib", "cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+wgpu = "0.16.1"
+winit = "0.28.6"
+android-activity = { version = "0.4.1", features = [ "native-activity" ]}
+async-executor = "1.4.1"
+pollster = "0.2.5"
+log = "0.4"
+android_logger = "*"
+
+[package.metadata.android]
+build_targets = ["armv7-linux-androideabi", "aarch64-linux-android"]
+target_sdk_version = 29
+min_sdk_version = 23
+
+[package.metadata.android.application]
+label = "Hello Triangle"
