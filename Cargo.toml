@@ -19,7 +19,7 @@ android_logger = "*"
 
 [package.metadata.android]
 package = "world.datom.hello_triangle"
-build_targets = ["armv7-linux-androideabi", "aarch64-linux-android"]
+build_targets = ["armv7-linux-androideabi", "aarch64-linux-android", "x86_64-linux-android"]
 target_sdk_version = 29
 min_sdk_version = 23
 apk_name = "hello_triangle"
