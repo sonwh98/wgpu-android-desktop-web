@@ -49,7 +49,7 @@ impl App {
     fn create_surface<T>(&mut self, event_loop: &EventLoopWindowTarget<T>) {
         let window = winit::window::Window::new(event_loop).unwrap();
         log::info!("WGPU: creating surface for native window");
-	let surface = unsafe { self.instance.create_surface(&window).unwrap()};
+        let surface = unsafe { self.instance.create_surface(&window).unwrap() };
         self.surface_state = Some(SurfaceState { window, surface });
     }
 
@@ -143,7 +143,7 @@ impl App {
 
             if self.render_state.is_none() {
                 log::info!("WGPU: finding supported swapchain format");
-		let cap = surface_state.surface. get_capabilities(&adapter);
+                let cap = surface_state.surface.get_capabilities(&adapter);
                 let swapchain_format = cap.formats[0];
 
                 let rs = Self::init_render_state(adapter, swapchain_format).await;
@@ -268,11 +268,16 @@ fn run(event_loop: EventLoop<()>) {
             Event::WindowEvent {
                 event: WindowEvent::CloseRequested,
                 ..
-            } => *control_flow = ControlFlow::Exit,
-            Event::WindowEvent { event: _, .. } => {
-                log::info!("Window event {:#?}", event);
+            } => {
+                log::info!("foobar event {:#?}", event);
+                *control_flow = ControlFlow::Exit
             }
-            _ => {}
+            Event::WindowEvent { event: _, .. } => {
+                log::info!("barfoo event {:#?}", event);
+            }
+            haha => {
+                log::info!("haha {:#?}", haha);
+            }
         }
     });
 }
@@ -286,8 +291,10 @@ fn _main(event_loop: EventLoop<()>) {
 #[no_mangle]
 fn android_main(app: AndroidApp) {
     use winit::platform::android::EventLoopBuilderExtAndroid;
-    android_logger::init_once(android_logger::Config::default().with_max_level(log::LevelFilter::Trace));
-    
+    android_logger::init_once(
+        android_logger::Config::default().with_max_level(log::LevelFilter::Trace),
+    );
+
     let event_loop = EventLoopBuilder::new().with_android_app(app).build();
     _main(event_loop);
 }
