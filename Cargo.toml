@@ -16,7 +16,7 @@ winit = "0.28.6"
 android-activity = { version = "0.4.1", features = [ "native-activity" ]}
 async-executor = "1.4.1"
 pollster = "0.2.5"
-log = "0.4"
+log = "0.4.19"
 android_logger = "*"
 
 [package.metadata.android]
