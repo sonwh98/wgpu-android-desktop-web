@@ -17,6 +17,7 @@ cargo apk run
 
 #Useful cmds
 ```bash
+adb devices
 adb install target/debug/apk/hello_triangle.apk
 adb shell pm list packages|grep triangle
 adb shell cmd package uninstall -k world.datom.hello_triangle
