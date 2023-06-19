@@ -12,6 +12,7 @@ export ANDROID_NDK_ROOT=/usr/local/android-sdk/ndk/25.2.9519653
 
 #Build and run
 ```
+cargo apk build --target=aarch64-linux-android
 cargo apk run
 ```
 

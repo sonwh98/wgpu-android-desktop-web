@@ -13,6 +13,9 @@ use winit::{
 #[cfg(target_os = "android")]
 use winit::platform::android::activity::AndroidApp;
 
+#[cfg(target_arch="wasm32")]
+use wasm_bindgen::prelude::*;
+
 struct RenderState {
     device: Device,
     queue: Queue,
