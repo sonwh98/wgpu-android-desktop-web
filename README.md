@@ -22,9 +22,7 @@ adb devices
 adb install target/debug/apk/hello_triangle.apk
 adb shell pm list packages|grep triangle
 adb shell cmd package uninstall -k world.datom.hello_triangle
-adb shell am start -n world.datom.hello_triangle/HelloTriangleActivity
-
-com.package.name/com.package.name.ActivityName
+adb shell monkey -p world.datom.hello_triangle -c android.intent.category.LAUNCHER 1
 
 emulator -list-avds
 emulator -avd pixel6pro
