@@ -304,7 +304,7 @@ fn android_main(app: AndroidApp) {
 
 #[allow(dead_code)]
 #[cfg(not(target_os = "android"))]
-fn main() {
+fn foo_main() {
     env_logger::builder()
         .filter_level(log::LevelFilter::Info) // Default Log Level
         .parse_default_env()
