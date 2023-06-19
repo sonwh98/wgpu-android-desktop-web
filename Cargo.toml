@@ -14,6 +14,8 @@ winit = "0.28.6"
 async-executor = "1.4.1"
 pollster = "0.2.5"
 log = "0.4.19"
+env_logger = "0.10"
+wgpu = "0.16.1"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 console_error_panic_hook = "0.1.6"
@@ -28,7 +30,6 @@ web-sys = { version = "0.3", features = [
 ]}
 
 [target.'cfg(target_os = "android")'.dependencies]
-wgpu = "0.16.1"
 android-activity = { version = "0.4.1", features = [ "native-activity" ]}
 android_logger = "*"
 
