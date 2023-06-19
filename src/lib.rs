@@ -13,7 +13,7 @@ use winit::{
 #[cfg(target_os = "android")]
 use winit::platform::android::activity::AndroidApp;
 
-#[cfg(target_arch="wasm32")]
+#[cfg(target_arch = "wasm32")]
 use wasm_bindgen::prelude::*;
 
 struct RenderState {
@@ -168,7 +168,7 @@ impl App {
                 height: size.height,
                 present_mode: wgpu::PresentMode::Mailbox,
                 alpha_mode: wgpu::CompositeAlphaMode::Inherit,
-                view_formats: vec![]
+                view_formats: vec![],
             };
 
             log::info!("WGPU: Configuring surface swapchain: format = {swapchain_format:?}, size = {size:?}");
@@ -304,7 +304,21 @@ fn android_main(app: AndroidApp) {
 
 #[allow(dead_code)]
 #[cfg(not(target_os = "android"))]
-fn foo_main() {
+#[cfg_attr(target_arch = "wasm32", wasm_bindgen(start))]
+fn web_main() {
+    cfg_if::cfg_if! {
+    if #[cfg(target_arch = "wasm32")] {
+            std::panic::set_hook(Box::new(console_error_panic_hook::hook));
+            console_log::init_with_level(log::Level::Warn).expect("Couldn't initialize logger");
+    }}
+
+    let event_loop = EventLoopBuilder::new().build();
+    _main(event_loop);
+}
+
+#[allow(dead_code)]
+#[cfg(not(target_os = "android"))]
+fn desktop_main() {
     env_logger::builder()
         .filter_level(log::LevelFilter::Info) // Default Log Level
         .parse_default_env()
