@@ -26,6 +26,8 @@ adb shell monkey -p world.datom.hello_triangle -c android.intent.category.LAUNCH
 
 emulator -list-avds
 emulator -avd pixel6pro
+
+rustup target list --installed
 ```
 
 
