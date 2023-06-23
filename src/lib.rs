@@ -306,11 +306,8 @@ fn android_main(app: AndroidApp) {
 #[cfg(not(target_os = "android"))]
 #[cfg_attr(target_arch = "wasm32", wasm_bindgen(start))]
 fn web_main() {
-    cfg_if::cfg_if! {
-    if #[cfg(target_arch = "wasm32")] {
-            std::panic::set_hook(Box::new(console_error_panic_hook::hook));
-            console_log::init_with_level(log::Level::Warn).expect("Couldn't initialize logger");
-    }}
+    std::panic::set_hook(Box::new(console_error_panic_hook::hook));
+    console_log::init_with_level(log::Level::Warn).expect("Couldn't initialize logger");
 
     let event_loop = EventLoopBuilder::new().build();
     _main(event_loop);
