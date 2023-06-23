@@ -1,6 +1,7 @@
-# android-wgpu
-Drawing a triangle with low level graphics library is surprisingly difficulty. This is an example of how to 
-get started on WebGPU for Android/Web/Desktop so you can quickly bootstrap your own project.
+# wgpu-android-desktop-web
+Drawing a triangle with low level graphics library like WebGPU is surprisingly difficulty. 
+This is an example of how to get started on WebGPU for Android/Desktop/Web so you can quickly bootstrap
+your own project.
 
 Make sure to install anroid ndk side-by-side not the ndk-bundle. The ndk-bundle is legacy
 
