@@ -15,7 +15,11 @@ export ANDROID_NDK_ROOT=/usr/local/android-sdk/ndk/25.2.9519653
 # Build and run
 ```
 cargo apk build --target=aarch64-linux-android
+cargo build --target=wasm32-unknown-unknown
 cargo apk run
+
+wasm-pack build --target web
+
 ```
 
 # Useful cmds
