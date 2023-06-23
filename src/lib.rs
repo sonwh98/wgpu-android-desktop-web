@@ -298,12 +298,7 @@ fn android_main(app: AndroidApp) {
         android_logger::Config::default().with_max_level(log::LevelFilter::Trace),
     );
 
-    #[cfg(target_os = "android")]
     let event_loop = EventLoopBuilder::new().with_android_app(app).build(); 
-
-    #[cfg(not(target_os = "android"))]
-    let event_loop = EventLoopBuilder::new().build();
-
     _main(event_loop);
 }
 
