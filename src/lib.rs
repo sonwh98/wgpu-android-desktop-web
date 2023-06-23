@@ -285,10 +285,6 @@ fn run(event_loop: EventLoop<()>) {
     });
 }
 
-fn _main(event_loop: EventLoop<()>) {
-    run(event_loop);
-}
-
 #[allow(dead_code)]
 #[cfg(target_os = "android")]
 #[no_mangle]
@@ -299,7 +295,7 @@ fn android_main(app: AndroidApp) {
     );
 
     let event_loop = EventLoopBuilder::new().with_android_app(app).build(); 
-    _main(event_loop);
+    run(event_loop);
 }
 
 #[allow(dead_code)]
@@ -310,7 +306,7 @@ fn web_main() {
     console_log::init_with_level(log::Level::Warn).expect("Couldn't initialize logger");
 
     let event_loop = EventLoopBuilder::new().build();
-    _main(event_loop);
+    run(event_loop);
 }
 
 #[allow(dead_code)]
@@ -322,5 +318,5 @@ fn desktop_main() {
         .init();
 
     let event_loop = EventLoopBuilder::new().build();
-    _main(event_loop);
+    run(event_loop);
 }
