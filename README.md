@@ -1,5 +1,5 @@
 # wgpu-android-desktop-web
-Drawing a triangle with low level graphics library like WebGPU is surprisingly difficulty. 
+Drawing a triangle using low level graphics library like WebGPU is surprisingly difficulty. 
 This is an example of how to get started on WebGPU for Android/Desktop/Web so you can quickly bootstrap
 your own project.
 
