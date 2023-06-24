@@ -299,7 +299,7 @@ fn android_main(app: AndroidApp) {
 }
 
 #[allow(dead_code)]
-#[cfg(not(target_os = "android"))]
+#[cfg(target_arch = "wasm32")]
 #[cfg_attr(target_arch = "wasm32", wasm_bindgen(start))]
 fn web_main() {
     std::panic::set_hook(Box::new(console_error_panic_hook::hook));
