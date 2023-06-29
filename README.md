@@ -36,5 +36,3 @@ emulator -avd pixel6pro
 rustup target list --installed
 python3 -m http.server
 ```
-
-
