@@ -46,9 +46,7 @@ impl App {
             render_state: None,
         }
     }
-}
 
-impl App {
     fn create_surface<T>(&mut self, event_loop: &EventLoopWindowTarget<T>) {
         let window = winit::window::Window::new(event_loop).unwrap();
         log::info!("WGPU: creating surface for native window");
@@ -294,7 +292,7 @@ fn android_main(app: AndroidApp) {
         android_logger::Config::default().with_max_level(log::LevelFilter::Trace),
     );
 
-    let event_loop = EventLoopBuilder::new().with_android_app(app).build(); 
+    let event_loop = EventLoopBuilder::new().with_android_app(app).build();
     run(event_loop);
 }
 
