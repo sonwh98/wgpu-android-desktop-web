@@ -30,7 +30,7 @@ web-sys = { version = "0.3", features = [
 ]}
 
 [target.'cfg(target_os = "android")'.dependencies]
-android-activity = { version = "0.4.1", features = [ "native-activity" ]}
+android-activity = { version = "0.4.2", features = [ "native-activity" ]}
 android_logger = "*"
 
 [package.metadata.android]
